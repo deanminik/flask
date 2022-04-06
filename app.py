@@ -33,5 +33,15 @@ def start():
 
 """
 
+
 # to set the production
 # export FLASK_ENV=production
+
+@app.route('/greet/<name>')
+def greet(name):
+    return f'greetings {name.upper()}'
+
+
+@app.route('/age/<int:age>')
+def show_age(age):
+    return f'Your age is : {age}'
