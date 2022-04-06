@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -7,7 +7,14 @@ app = Flask(__name__)
 # flask run
 @app.route('/')
 def start():
+    # app.logger.debug('Message debug level')
+    # app.logger.info('Message info level')
+    # app.logger.warn('Message warn level')
+    # app.logger.error('Message error level')
+    app.logger.info(f'We are inside of the path {request.path}')
+
     return 'hello from flask->'
+
 
 # working on linux or mac if we need to work in development area
 # export FLASK_APP=app.py
@@ -26,3 +33,5 @@ def start():
 
 """
 
+# to set the production
+# export FLASK_ENV=production
